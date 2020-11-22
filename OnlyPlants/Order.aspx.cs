@@ -14,7 +14,7 @@ namespace OnlyPlants
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpCookie user = Request.Cookies["USER"];
-            if(user.Value != "")
+            if(user != null)
             {
                 int userid = Convert.ToInt32(user.Value);
                 string payment_amt = "", name = "", quantity = "", orderid = "";

@@ -23,12 +23,5 @@ namespace OnlyPlants
             Application["Cart"] = globalCart;
             Application.UnLock();
         }
-
-        void Application_End(object sender, EventArgs e)
-        {
-            Application.Lock();
-            Application["Order"] = null;
-            Application.UnLock();
-        }
     }
 }
