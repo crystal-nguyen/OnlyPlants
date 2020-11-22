@@ -154,12 +154,36 @@
     <Content Include="assets\formstyler\jquery.formstyler.js" />
     <Content Include="assets\formstyler\jquery.formstyler.min.js" />
     <Content Include="assets\formstyler\jquery.formstyler.theme.css" />
+    <Content Include="assets\images\calendula-seed-416x416.jpg" />
+    <Content Include="assets\images\cornflower-seed-416x312.jpg" />
+    <Content Include="assets\images\dahlia-seed-416x416.jpg" />
+    <Content Include="assets\images\dandelion-seed-416x278.jpg" />
     <Content Include="assets\images\header-1-2000x1333.jpg" />
     <Content Include="assets\images\header-2000x1333.jpg" />
+    <Content Include="assets\images\large-aloe-vera-416x501.jpg" />
+    <Content Include="assets\images\large-baby-pink-pot-416x624.jpg" />
+    <Content Include="assets\images\large-black-pot-416x300.jpg" />
+    <Content Include="assets\images\large-fiddle-leaf-2048x2048.jpg" />
+    <Content Include="assets\images\large-sky-blue-pot-416x517.jpg" />
+    <Content Include="assets\images\large-snake-plant-416x416.jpg" />
+    <Content Include="assets\images\large-white-pot-416x416.jpg" />
     <Content Include="assets\images\onlyplants-1110x258.png" />
+    <Content Include="assets\images\pansy-seed-416x312.jpg" />
+    <Content Include="assets\images\petunia-seed-416x416.jpg" />
     <Content Include="assets\images\product1.jpg" />
     <Content Include="assets\images\product2.jpg" />
     <Content Include="assets\images\product3.jpg" />
+    <Content Include="assets\images\small-aubergine-pot-416x416.jpg" />
+    <Content Include="assets\images\small-black-glossy-pot-416x416.jpg" />
+    <Content Include="assets\images\small-bromeliad-416x416.jpg" />
+    <Content Include="assets\images\small-clay-pot-416x400.jpg" />
+    <Content Include="assets\images\small-monstera-1000x1000.jpg" />
+    <Content Include="assets\images\small-orchid-416x416.jpg" />
+    <Content Include="assets\images\small-peace-lilly-416x541.jpg" />
+    <Content Include="assets\images\small-red-pot-416x555.jpg" />
+    <Content Include="assets\images\small-spider-plant-416x416.jpg" />
+    <Content Include="assets\images\sunflower-seed-416x520.jpg" />
+    <Content Include="assets\images\zinnia-seed-416x416.jpg" />
     <Content Include="assets\mobirise\css\mbr-additional.css" />
     <Content Include="assets\popper\popper.min.js" />
     <Content Include="assets\smoothscroll\smooth-scroll.js" />
@@ -219,10 +243,7 @@
     <Content Include="assets\mbr-switch-arrow\mbr-switch-arrow.js" />
     <Content Include="Order.aspx" />
     <Content Include="order.html" />
-    <Content Include="Plants.aspx" />
-    <Content Include="plants.html" />
-    <Content Include="Pots.aspx" />
-    <Content Include="pots.html" />
+    <Content Include="products.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -251,8 +272,6 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Seeds.aspx" />
-    <Content Include="seeds.html" />
     <Content Include="Signup.aspx" />
     <Content Include="signup.html" />
     <Content Include="Site.Master" />
@@ -295,28 +314,7 @@
     <Compile Include="Order.aspx.designer.cs">
       <DependentUpon>Order.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Plants.aspx.cs">
-      <DependentUpon>Plants.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Plants.aspx.designer.cs">
-      <DependentUpon>Plants.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pots.aspx.cs">
-      <DependentUpon>Pots.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pots.aspx.designer.cs">
-      <DependentUpon>Pots.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Seeds.aspx.cs">
-      <DependentUpon>Seeds.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Seeds.aspx.designer.cs">
-      <DependentUpon>Seeds.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Signup.aspx.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
