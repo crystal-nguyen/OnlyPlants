@@ -22,19 +22,19 @@
     <link rel="stylesheet" href="assets/animatecss/animate.css" />
     <link rel="stylesheet" href="assets/socicon/css/styles.css" />
     <link rel="stylesheet" href="assets/theme/css/style.css" />
-    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css" />
+    <link rel="preload" href="assets/mobirise/css/mbr-additional.css" />
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css" />
 </head>
 
 <body>
     <form id="form1" runat="server">
-        <section class="menu menu2 cid-sgaMjCw33X" once="menu" id="menu2-2r">
+        <section class="menu menu2 cid-sgaMjCw33X" id="menu2-2r">
             <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
                 <div class="container-fluid">
                     <div class="navbar-brand">
                         <span class="navbar-logo">
                             <a href="Default.aspx">
-                                <img src="./assets/images/onlyplants-1110x258.png" alt="OnlyPlants" style="height: 4.6rem;"></a>
+                                <img src="./assets/images/onlyplants-1110x258.png" alt="OnlyPlants" style="height: 4.6rem;"/></a>
                         </span>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,18 +47,12 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-                            <li class="nav-item">
-                                <a href="~/Products" runat="server" class="nav-link link text-black text-primary display-4">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="~/Login" runat="server" class="nav-link link text-black text-primary display-4">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="~/Order" runat="server" class="nav-link link text-black text-primary display-4">Orders</a>
-                            </li>
+                            <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="Products.aspx">Products</a></li>
+                            <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="Login.aspx">Login</a></li>
+                            <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="Order.aspx">Orders</a></li>
                         </ul>
                         <div class="navbar-buttons mbr-section-btn">
-                            <a href="~/Checkout" runat="server" class="btn btn-primary display-4">
+                            <a href="Checkout.aspx" runat="server" class="btn btn-primary display-4">
                                 <span class="mbrib-shopping-cart mbr-iconfont mbr-iconfont-btn"></span>Cart
                             </a>
                         </div>
