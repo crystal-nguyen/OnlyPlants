@@ -18,6 +18,7 @@ namespace OnlyPlants
         {
             // should redirct to order hi
             Response.Redirect("~/Checkout");
+            // hi
         }
     }
 }
