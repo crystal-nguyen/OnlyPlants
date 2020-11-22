@@ -16,14 +16,30 @@ namespace OnlyPlants
         protected void OnAddToCart(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
+            Product product = null;
 
             if(clickedButton.ID == "btnPlant1")
             {
+                //-----------------------------------------------------------
+                // need to create a product object by pulling information
+                // from the database
+                //-----------------------------------------------------------
+                // product = new Product()
+
                 
+                //-----------------------------------------------------------
+                // once the object has been created, need to update the
+                // products list in the user's order
+                //-----------------------------------------------------------
+                // Application.Lock();
+                // var globalOrder = Application["Order"];
+                // globalOrder.ProductList.Add(product);
+                // Application["Order"] = globalOrder;
+                // Application.UnLock();
             }
             else if(clickedButton.ID == "btnPlant2")
             {
-                
+
             }
             else if(clickedButton.ID == "btnPlant3")
             {
