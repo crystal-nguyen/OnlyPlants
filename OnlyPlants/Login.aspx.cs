@@ -13,14 +13,12 @@ namespace OnlyPlants
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //hi test
-            // test 5
-            // tst 6
+
         }
         protected void submit_Click(object sender, EventArgs e)
         {
             // should redirct to order hi
-            Response.Redirect("~/Checkout");
+            Response.Redirect("~/Order");
         }
     }
 }

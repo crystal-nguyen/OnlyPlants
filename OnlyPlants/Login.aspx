@@ -47,16 +47,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                         <li class="nav-item">
+                            <a href="~/Products" runat="server" class="nav-link link text-black text-primary display-4">Products</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="~/Login" runat="server" class="nav-link link text-black text-primary display-4">Login</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="~/Plants" runat="server" class="nav-link link text-black text-primary display-4">Plants</a>
-                        </li>
                         <li class="nav-item"> 
-                            <a href="~/Seeds" runat="server" class="nav-link link text-black text-primary display-4">Seeds</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="~/Pots" runat="server" class="nav-link link text-black text-primary display-4">Pots</a>
+                            <a href="~/Order" runat="server" class="nav-link link text-black text-primary display-4">Orders</a>
                         </li>
                     </ul>
 
@@ -92,7 +89,7 @@
                     </div>
                     <div class="dragArea row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <h1 class="mbr-section-title mb-4 display-2"><strong>Log in</strong></h1>
+                            <h1 class="mbr-section-title mb-4 display-2"><strong>Log In</strong></h1>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -103,7 +100,9 @@
                         <div class="col-lg-12 col-md col-sm-12 form-group" data-for="email">
                              <asp:TextBox CssClass="form-control" placeholder="Password" ID="password" runat="server" TextMode="Password"></asp:TextBox>
                         </div>
-                        <div class="col-md-auto col-12 mbr-section-btn"><asp:Button CssClass="btn btn-black display-4" OnClick="submit_Click" Text="Submit" runat="server" ID="submit"/></div>
+                        <div class="col-md-auto col-12 mbr-section-btn">
+                            <asp:Button CssClass="btn btn-black display-4" OnClick="submit_Click" Text="Log In" runat="server" ID="login"/>
+                        </div>
                     </div>
                 </div>
                 <div class="offset-lg-1"></div>
@@ -116,7 +115,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
                     <h3 class="mbr-section-title mb-4 mbr-fonts-style display-2">
-                        <strong>Join our community</strong>
+                        <strong>Join Our Community</strong>
                     </h3>
                     <div class="mbr-section-btn">
                         <a href="~/SignUp" class="nav-link link text-black text-primary display-4" runat="server">Sign Up</a>

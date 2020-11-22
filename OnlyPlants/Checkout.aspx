@@ -89,7 +89,7 @@
                         <asp:TextBox runat="server" placeholder="Card Number" CssClass="form-control" ID="card_tb"></asp:TextBox>
                     </div>
                      <div class="col-12 form-group" data-for="textarea">
-                        <asp:TextBox runat="server" placeholder="tional notes" CssClass="form-control" ID="TextBox1" ></asp:TextBox>
+                        <asp:TextBox runat="server" placeholder="Additional notes" CssClass="form-control" ID="order_items" ></asp:TextBox>
                     </div>
                     <div class="col-12 form-group" data-for="textarea">
                         <asp:TextBox runat="server" TextMode="MultiLine" placeholder="Leave additional notes" CssClass="form-control" ID="notes_tb" ></asp:TextBox>

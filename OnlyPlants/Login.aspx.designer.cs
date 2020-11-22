@@ -33,12 +33,12 @@ namespace OnlyPlants
         protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
-        /// submit control.
+        /// login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submit;
+        protected global::System.Web.UI.WebControls.Button login;
     }
 }
