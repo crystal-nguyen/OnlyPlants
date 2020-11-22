@@ -11,6 +11,7 @@ namespace OnlyPlants
 {
     public partial class Signup : System.Web.UI.Page
     {
+        private string alertType { get; set; }
         private string connectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=0204999503cN;Database=postgres";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,11 +41,8 @@ namespace OnlyPlants
                 con.Close();
 
             }
-            if(result != "")
-            {
-                
-            }
-
+            alertType = result == "" ? "alert_success" : "alert_danger";
+            alertmsg.Visible = true;
             
         }
     }

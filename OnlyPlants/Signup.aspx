@@ -75,6 +75,9 @@
 
     <section class="form7 cid-sgaWPLfnmj" id="form7-1l">
         <div class="container">
+            <div style="margin-left: 100px" class="<%alertType %>" visible="true" id="alertmsg" runat="server">
+                 <h4><strong>Oh no!</strong> User already exists. Try again.</h4>
+            </div>
             <div class="mbr-section-head">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
                     <strong>Sign Up</strong>
