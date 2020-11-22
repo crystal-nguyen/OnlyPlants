@@ -16,6 +16,19 @@ namespace OnlyPlants
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
+            // global variable for the user's current order
+            Order globalOrder = null;
+            Application.Lock();
+            Application["Order"] = globalOrder;
+            Application.UnLock();
+        }
+
+        void Application_End(object sender, EventArgs e)
+        {
+            Application.Lock();
+            Application["Order"] = null;
+            Application.UnLock();
         }
     }
 }
