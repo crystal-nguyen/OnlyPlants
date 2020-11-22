@@ -16,7 +16,7 @@ namespace OnlyPlants
         }
         protected void submit_Click(object sender, EventArgs e)
         {
-            // should redirct to order hist
+            // should redirct to order hi
             Response.Redirect("~/Checkout");
         }
     }
