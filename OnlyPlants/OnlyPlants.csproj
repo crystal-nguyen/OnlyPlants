@@ -242,7 +242,6 @@
     <Content Include="Login.aspx" />
     <Content Include="assets\mbr-switch-arrow\mbr-switch-arrow.js" />
     <Content Include="Order.aspx" />
-    <Content Include="order.html" />
     <Content Include="products.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
