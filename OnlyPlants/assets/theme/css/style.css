@@ -39,6 +39,12 @@ a, a:hover {
   text-decoration: none;
 }
 
+.alert-danger {
+    color: #a94442;
+    background-color: #F08080;
+    border-color: #F08080;
+}
+
 .mbr-section-title {
   font-style: normal;
   line-height: 1.3;

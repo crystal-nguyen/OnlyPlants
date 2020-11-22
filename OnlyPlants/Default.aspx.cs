@@ -12,11 +12,7 @@ namespace OnlyPlants
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string indexhtml = "index.html";
-            StreamReader sr = new StreamReader(Server.MapPath(indexhtml));
-            string content = sr.ReadToEnd();
-            sr.Close();
-            index.InnerHtml = content;
+
         }
     }
 }

@@ -5,18 +5,45 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using Npgsql;
 
 namespace OnlyPlants
 {
     public partial class Signup : System.Web.UI.Page
     {
+        private string alertType { get; set; }
+        private string connectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=0204999503cN;Database=postgres";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string signuphtml = "signup.html";
-            StreamReader sr = new StreamReader(Server.MapPath(signuphtml));
-            string content = sr.ReadToEnd();
-            sr.Close();
-            signup.InnerHtml = content;
+
+        }
+
+        protected void signUp_Click(object sender, EventArgs e)
+        {
+            string result = "";
+            using (var con = new NpgsqlConnection(connectionString))
+            {
+                con.Open();
+                var sql = @"SELECT userid FROM users WHERE login = @username";
+                using (var cmd = new NpgsqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("username", username_tb.Text);
+
+                    using(NpgsqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            result += dr.GetInt32(0);
+                        }
+                    }
+
+                }
+                con.Close();
+
+            }
+            alertType = result == "" ? "alert_success" : "alert_danger";
+            alertmsg.Visible = true;
+            
         }
     }
 }

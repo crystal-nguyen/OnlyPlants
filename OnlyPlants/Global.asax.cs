@@ -16,6 +16,12 @@ namespace OnlyPlants
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // global variable for the user's cart
+            Cart globalCart = new Cart();
+            Application.Lock();
+            Application["Cart"] = globalCart;
+            Application.UnLock();
         }
     }
 }
