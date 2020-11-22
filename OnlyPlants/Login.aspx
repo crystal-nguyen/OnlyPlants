@@ -47,24 +47,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                         <li class="nav-item">
-                            <asp:LinkButton ID="login" CssClass="nav-link link text-black text-primary display-4" runat="server" OnClick="login_Click">Login</asp:LinkButton>
+                            <a href="~/Login" runat="server" class="nav-link link text-black text-primary display-4">Login</a>
                         </li>
                         <li class="nav-item">
-                            <asp:LinkButton ID="plants" CssClass="nav-link link text-black text-primary display-4" runat="server" OnClick="plants_Click">Plants</asp:LinkButton>
+                            <a href="~/Plants" runat="server" class="nav-link link text-black text-primary display-4">Plants</a>
                         </li>
                         <li class="nav-item"> 
-                            <asp:LinkButton ID="seeds" CssClass="nav-link link text-black text-primary display-4" runat="server" OnClick="seeds_Click">Seeds</asp:LinkButton>
+                            <a href="~/Seeds" runat="server" class="nav-link link text-black text-primary display-4">Seeds</a>
                         </li>
                         <li class="nav-item">
-                              <asp:LinkButton ID="pots" CssClass="nav-link link text-black text-primary display-4" runat="server" OnClick="pots_Click">Pots</asp:LinkButton>
+                            <a href="~/Pots" runat="server" class="nav-link link text-black text-primary display-4">Pots</a>
                         </li>
                     </ul>
 
                     <div class="navbar-buttons mbr-section-btn">
-                        <asp:LinkButton runat="server" CssClass="btn btn-primary display-4" OnClick="checkout_Click" ID="checkout">
+                        <a href="~/Checkout" runat="server" class="btn btn-primary display-4">
                              <span class="mbrib-shopping-cart mbr-iconfont mbr-iconfont-btn"></span>
                                 Cart
-                        </asp:LinkButton>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -118,8 +118,8 @@
                     <h3 class="mbr-section-title mb-4 mbr-fonts-style display-2">
                         <strong>Join our community</strong>
                     </h3>
-                    <div class="mbr-section-btn"> 
-                        <asp:LinkButton ID="signup" CssClass="nav-link link text-black text-primary display-4" runat="server" OnClick="signup_Click">Sign Up</asp:LinkButton>
+                    <div class="mbr-section-btn">
+                        <a href="~/SignUp" class="nav-link link text-black text-primary display-4" runat="server">Sign Up</a>
                     </div>
                 </div>
             </div>

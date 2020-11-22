@@ -171,9 +171,7 @@
     <Content Include="assets\web\assets\mobirise-icons-bold\mobirise-icons-bold.ttf" />
     <Content Include="assets\web\assets\mobirise-icons-bold\mobirise-icons-bold.woff" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="index.html" />
     <Content Include="Login.aspx" />
-    <Content Include="login.html" />
     <Content Include="order.html" />
     <Content Include="Plants.aspx" />
     <Content Include="plants.html" />

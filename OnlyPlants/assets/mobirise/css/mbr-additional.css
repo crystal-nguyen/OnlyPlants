@@ -3672,6 +3672,8 @@ a {
   width: 100%;
   position: relative;
   min-height: 60px;
+    top: -30px;
+    left: 0px;
 }
 .cid-sgaMjCw33X nav.navbar {
   position: fixed;

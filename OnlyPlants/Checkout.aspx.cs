@@ -12,11 +12,11 @@ namespace OnlyPlants
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string checkouthtml = "checkout.html";
-            StreamReader sr = new StreamReader(Server.MapPath(checkouthtml));
-            string content = sr.ReadToEnd();
-            sr.Close();
-            checkout.InnerHtml = content;
+        }
+
+        protected void submit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
