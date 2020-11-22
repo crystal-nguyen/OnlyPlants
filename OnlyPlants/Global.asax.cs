@@ -16,11 +16,11 @@ namespace OnlyPlants
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
-            // global variable for the user's current order
-            Order globalOrder = null;
+
+            // global variable for the user's cart
+            Cart globalCart = new Cart();
             Application.Lock();
-            Application["Order"] = globalOrder;
+            Application["Cart"] = globalCart;
             Application.UnLock();
         }
 
