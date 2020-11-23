@@ -109,7 +109,7 @@
             </div>
         </section>
 
-        <section class="footer3 cid-sgaNoV01rM" once="footers" id="footer3-1c">
+        <section class="footer3 cid-sgaNoV01rM" id="footer3-1c">
             <div class="container">
                 <div class="media-container-row align-center mbr-white">
                     <div class="row row-links">
