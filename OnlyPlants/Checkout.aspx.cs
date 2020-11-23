@@ -22,27 +22,8 @@ namespace OnlyPlants
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            //fill in order table
 
-            using (var con = new NpgsqlConnection(connectionString))
-            {
-                con.Open();
-                Application.Lock();
-                Cart globalCart = new Cart();
-                globalCart = (Cart) Application["Cart"];
-                Application.UnLock();
-
-
-                var sql = @"INSERT INTO orders VALUES(@quantity, @deliveryType, @orderID, @deliveryTime)";
-                var cmd = new NpgsqlCommand(sql, con);
-                //cmd.Parameters.AddWithValue("quantity", totalQuantity);
-               // cmd.Parameters.AddWithValue("deliveryType", )
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-            }
-
-            //fill in order_has table//////////
+            //fill in order_has table
 
             using (var con = new NpgsqlConnection(connectionString))
             {
@@ -62,14 +43,27 @@ namespace OnlyPlants
                     cmd.Parameters.AddWithValue("productID", prod.productId);
                     cmd.Parameters.AddWithValue("orderID", globalCart.OrderID);
                     cmd.Parameters.AddWithValue("quantity", prod.quantity);
+
                     totalQuantity += prod.quantity;
                     cmd.ExecuteNonQuery();
                 }
 
-                con.Close();
+                //add to order table
+                    var ordersSQL = @"INSERT INTO orders VALUES(@quantity, @deliveryType, @orderID, @deliveryTime)";
+                    var cmdOrder = new NpgsqlCommand(ordersSQL, con);
 
+                    cmdOrder.Parameters.AddWithValue("quantity", totalQuantity);
 
+                    string deliveryMethod = deliveryType();//generate a delivery type 
+                    cmdOrder.Parameters.AddWithValue("deliveryType", deliveryMethod);
 
+                    cmdOrder.Parameters.AddWithValue("orderID", globalCart.OrderID);
+
+                    string dayOfDelivery = deliveryDay();//calculate estimated delivery date
+                    cmdOrder.Parameters.AddWithValue("deliveryTime", dayOfDelivery);
+
+                    cmdOrder.ExecuteNonQuery();
+                    con.Close();
 
             }
 
@@ -97,6 +91,13 @@ namespace OnlyPlants
                 delivery = "FedEx";
             }
             return delivery;
+        }
+
+        public string deliveryDay() {
+            DateTime orderedDate = DateTime.Now;
+            DateTime deliveryDate = orderedDate.AddDays(3);
+            string day =  deliveryDate.DayOfWeek.ToString();
+            return day;
         }
     }
 
