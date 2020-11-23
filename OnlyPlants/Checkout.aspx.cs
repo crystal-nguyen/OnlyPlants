@@ -31,11 +31,13 @@ namespace OnlyPlants
                 Cart globalCart = new Cart();
                 globalCart = (Cart) Application["Cart"];
                 Application.UnLock();
+
+
                 var sql = @"INSERT INTO orders VALUES(@quantity, @deliveryType, @orderID, @deliveryTime)";
                 var cmd = new NpgsqlCommand(sql, con);
-
-              
-                 cmd.ExecuteNonQuery();
+                //cmd.Parameters.AddWithValue("quantity", totalQuantity);
+               // cmd.Parameters.AddWithValue("deliveryType", )
+                cmd.ExecuteNonQuery();
                 con.Close();
 
             }
@@ -72,5 +74,31 @@ namespace OnlyPlants
             }
 
         }
+
+        public string deliveryType()
+        {
+            string delivery = "";
+            Random r = new Random();
+            int choose = r.Next(1, 4);
+            if (choose == 1)
+            {
+                delivery = "USPS";
+            }
+            else if (choose == 2)
+            {
+                delivery = "DHL";
+            }
+            else if (choose == 3)
+            {
+                delivery = "UPS";
+            }
+            else
+            {
+                delivery = "FedEx";
+            }
+            return delivery;
+        }
     }
+
+
 }
