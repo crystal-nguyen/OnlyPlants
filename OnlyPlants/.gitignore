@@ -1,0 +1,7 @@
+#do not ignore these files
+!*.aspx
+!*.cs
+!*.html
+!*.csproj
+!*.ascx
+!*.Master
