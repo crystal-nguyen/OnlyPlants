@@ -17,9 +17,10 @@ namespace OnlyPlants
         }
         protected void OnAddToCart(object sender, EventArgs e)
         {
+
             Button clickedButton = sender as Button;
             int productid = Convert.ToInt32((clickedButton.ID).Remove(0,1));
-            
+
             // add the product id to the cart
             Application.Lock();
             ((Cart)Application["Cart"]).ProductList.Add(productid);
