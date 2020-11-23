@@ -1,2 +1,7 @@
 #ignore this directory
 .vs
+/packages/AjaxControlToolkit.20.1.0/lib/net40/AjaxControlToolkit.dll
+/packages/AjaxControlToolkit.20.1.0/.signature.p7s
+/packages/AjaxControlToolkit.20.1.0/AjaxControlToolkit.20.1.0.nupkg
+/packages/AjaxControlToolkit.20.1.0/readme.txt
+/packages/AjaxControlToolkit.20.1.0/Content/Web.config.transform
