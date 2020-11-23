@@ -32,7 +32,7 @@ namespace OnlyPlants
                 globalCart = (Cart) Application["Cart"];
                 Application.UnLock();
                 var sql = @"INSERT INTO orders VALUES(@quantity, @deliveryType, @orderID, @deliveryTime)";
-                 var cmd = new NpgsqlCommand(sql, con);
+                var cmd = new NpgsqlCommand(sql, con);
 
               
                  cmd.ExecuteNonQuery();
@@ -50,7 +50,6 @@ namespace OnlyPlants
                 globalCart = (Cart)Application["Cart"];
                 Application.UnLock();
                 var productList = globalCart.ProductList;
-                var quantityList = globalCart.QuantityList;
                 var productInfo = productList.GroupBy(x => x).Select(x => new { productId = x.Key, quantity = x.Count() });
                 int totalQuantity = 0;
 
@@ -60,20 +59,11 @@ namespace OnlyPlants
 
                     cmd.Parameters.AddWithValue("productID", prod.productId);
                     cmd.Parameters.AddWithValue("orderID", globalCart.OrderID);
-                    cmd.Parameters.AddWithValue("quantity", prod.productId);
+                    cmd.Parameters.AddWithValue("quantity", prod.quantity);
                     totalQuantity += prod.quantity;
                     cmd.ExecuteNonQuery();
                 }
-               /*for (int i = 0; i < productList.Count(); i++)
-                {
-                    var sql = @"INSERT INTO order_has VALUES(@productID, @orderID, @quantity)";
-                    var cmd = new NpgsqlCommand(sql, con);
 
-                    cmd.Parameters.AddWithValue("productID", productList[i]);
-                    cmd.Parameters.AddWithValue("orderID", globalCart.OrderID);
-                    cmd.Parameters.AddWithValue("quantity", quantityList[i]);
-                    cmd.ExecuteNonQuery();
-                }*/
                 con.Close();
 
 
