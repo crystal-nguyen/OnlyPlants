@@ -22,26 +22,62 @@ namespace OnlyPlants
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            //fill in order_has table
+            //fill in order table
 
             using (var con = new NpgsqlConnection(connectionString))
             {
                 con.Open();
-                var sql = @"INSERT INTO order_hasV VALUES(@productID, @orID, @quantity)";
-                using (var cmd = new NpgsqlCommand(sql, con))
-                {
-                    cmd.Parameters.AddWithValue("productID", username_tb.Text);
+                Application.Lock();
+                Cart globalCart = new Cart();
+                globalCart = (Cart) Application["Cart"];
+                Application.UnLock();
+                var sql = @"INSERT INTO orders VALUES(@quantity, @deliveryType, @orderID, @deliveryTime)";
+                 var cmd = new NpgsqlCommand(sql, con);
 
-                    using(NpgsqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            result += dr.GetInt32(0);
-                        }
-                    }
-
-                }
+              
+                 cmd.ExecuteNonQuery();
                 con.Close();
+
+            }
+
+            //fill in order_has table//////////
+
+            using (var con = new NpgsqlConnection(connectionString))
+            {
+                con.Open();
+                Application.Lock();
+                Cart globalCart = new Cart();
+                globalCart = (Cart)Application["Cart"];
+                Application.UnLock();
+                var productList = globalCart.ProductList;
+                var quantityList = globalCart.QuantityList;
+                var productInfo = productList.GroupBy(x => x).Select(x => new { productId = x.Key, quantity = x.Count() });
+                int totalQuantity = 0;
+
+                foreach (var prod in productInfo){
+                    var sql = @"INSERT INTO order_has VALUES(@productID, @orderID, @quantity)";
+                    var cmd = new NpgsqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("productID", prod.productId);
+                    cmd.Parameters.AddWithValue("orderID", globalCart.OrderID);
+                    cmd.Parameters.AddWithValue("quantity", prod.productId);
+                    totalQuantity += prod.quantity;
+                    cmd.ExecuteNonQuery();
+                }
+               /*for (int i = 0; i < productList.Count(); i++)
+                {
+                    var sql = @"INSERT INTO order_has VALUES(@productID, @orderID, @quantity)";
+                    var cmd = new NpgsqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("productID", productList[i]);
+                    cmd.Parameters.AddWithValue("orderID", globalCart.OrderID);
+                    cmd.Parameters.AddWithValue("quantity", quantityList[i]);
+                    cmd.ExecuteNonQuery();
+                }*/
+                con.Close();
+
+
+
 
             }
 
