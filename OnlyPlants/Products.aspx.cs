@@ -25,6 +25,8 @@ namespace OnlyPlants
             Application.Lock();
             ((Cart)Application["Cart"]).ProductList.Add(productid);
             Application.UnLock();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowPopup();", true);
         }
     }
 }
