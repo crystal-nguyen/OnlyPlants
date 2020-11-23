@@ -31,6 +31,7 @@ namespace OnlyPlants
 
                         using (NpgsqlDataReader dr = cmd.ExecuteReader())
                         {
+                            // get the most recent order for the user
                             while (dr.Read())
                             {
                                 payment_amt = dr.GetDouble(0).ToString();

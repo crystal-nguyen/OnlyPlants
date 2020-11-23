@@ -91,18 +91,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card mb-3">
-                                <div class="card-header" role="tab" id="headingTwo">
-                                    <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse2_4" aria-expanded="false" aria-controls="collapse2">
-                                        <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Order 2</strong></h6>
-                                        <span class="sign mbr-iconfont mbri-arrow-down"></span></a>
-                                </div>
-                                <div id="collapse2_4" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="panel-body">
-                                        <asp:Label ID="lblOrder2" runat="server" CssClass="mbr-fonts-style panel-text display-7" Text="lblOrder2"></asp:Label>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
