@@ -22,9 +22,67 @@
     <link rel="stylesheet" href="assets/theme/css/style.css" />
     <link rel="preload" href="assets/mobirise/css/mbr-additional.css" />
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css" />
+
+    <style>
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .modal-body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
+
+        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modal-new-secFolder" aria-hidden="true">
+            <div class="modal-dialog" style="height: 150px; width: 250px;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>Added to cart!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function ShowPopup() {
+                $('#myModal').modal('show');
+            }
+        </script>
+
+        <input type="hidden" id="dropdownValue" runat="server" value="Midnight Navy" />
+
+        <script>
+            function getDropdownValue(pid) {
+                var dropDownId = "dd" + pid;
+                var newValue = document.getElementById(dropDownId).value
+                document.getElementById("dropdownValue").value = newValue;
+                //alert(dropdownValue.value);
+            }
+        </script>
+
         <section class="menu menu2 cid-sgaMjCw33X" id="menu2-2u">
             <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
                 <div class="container-fluid">
@@ -69,11 +127,17 @@
                             <div class="item-img">
                                 <img src="assets/images/small-monstera-1000x1000.jpg" data-slide-to="3" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Monsterra</strong></h5>
                             </div>
+                            
+                            <asp:DropDownList ID="dd100" runat="server">
+                                <asp:ListItem Selected="True" Value="Red"> Red </asp:ListItem>
+                                <asp:ListItem Value="Blue"> Blue </asp:ListItem>
+                            </asp:DropDownList>
+
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a100" />
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClientClick="getDropdownValue(100);" OnClick="OnAddToCart" ID="a100" />
                             </div>
                         </div>
                     </div>
@@ -82,20 +146,30 @@
                             <div class="item-img">
                                 <img src="assets/images/large-fiddle-leaf-2048x2048.jpg" data-slide-to="0" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Fiddle Leaf</strong></h5>
                             </div>
+
+                            <asp:DropDownList ID="dd101" runat="server">
+                                <asp:ListItem Selected="True" Value="White"> White </asp:ListItem>
+                                <asp:ListItem Value="Silver"> Silver </asp:ListItem>
+                                <asp:ListItem Value="DarkGray"> Dark Gray </asp:ListItem>
+                                <asp:ListItem Value="Khaki"> Khaki </asp:ListItem>
+                                <asp:ListItem Value="DarkKhaki"> Dark Khaki </asp:ListItem>
+                            </asp:DropDownList>
+
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
                                 <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a101" />
                             </div>
                         </div>
                     </div>
+
                     <div class="item features-image сol-12 col-md-6 col-lg-3">
                         <div class="item-wrapper">
                             <div class="item-img">
                                 <img src="assets/images/small-spider-plant-416x416.jpg" data-slide-to="1" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Spider Plant</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -108,7 +182,7 @@
                             <div class="item-img">
                                 <img src="assets/images/large-aloe-vera-416x501.jpg" data-slide-to="3" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Aloe Vera</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -128,7 +202,7 @@
                             <div class="item-img">
                                 <img src="assets/images/small-peace-lilly-416x541.jpg" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Peace Lilly</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -141,7 +215,7 @@
                             <div class="item-img">
                                 <img src="assets/images/large-snake-plant-416x416.jpg" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Snake Plant</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -154,7 +228,7 @@
                             <div class="item-img">
                                 <img src="assets/images/small-bromeliad-416x416.jpg" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Bromeliad</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -167,7 +241,7 @@
                             <div class="item-img">
                                 <img src="assets/images/small-orchid-416x416.jpg" data-slide-to="3" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Orchid</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -190,7 +264,7 @@
                             <div class="item-img">
                                 <img src="assets/images/dandelion-seed-416x278.jpg" data-slide-to="3" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Dandelion</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -203,7 +277,7 @@
                             <div class="item-img">
                                 <img src="assets/images/sunflower-seed-416x520.jpg" data-slide-to="0" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Sunflower</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -216,7 +290,7 @@
                             <div class="item-img">
                                 <img src="assets/images/zinnia-seed-416x416.jpg" data-slide-to="1" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Zinnia</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -229,7 +303,7 @@
                             <div class="item-img">
                                 <img src="assets/images/dahlia-seed-416x416.jpg" data-slide-to="3" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Dahlia</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -249,7 +323,7 @@
                             <div class="item-img">
                                 <img src="assets/images/petunia-seed-416x416.jpg" data-slide-to="0" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Petunia</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -262,7 +336,7 @@
                             <div class="item-img">
                                 <img src="assets/images/pansy-seed-416x312.jpg" data-slide-to="1" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Pansy</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -275,7 +349,7 @@
                             <div class="item-img">
                                 <img src="assets/images/calendula-seed-416x416.jpg" data-slide-to="2" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Calendula</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -288,7 +362,7 @@
                             <div class="item-img">
                                 <img src="assets/images/cornflower-seed-416x312.jpg" data-slide-to="3" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Cornflower</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -312,7 +386,7 @@
                             <div class="item-img">
                                 <img src="assets/images/small-red-pot-416x555.jpg" data-slide-to="3" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Red Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -325,7 +399,7 @@
                             <div class="item-img">
                                 <img src="assets/images/large-black-pot-416x300.jpg" data-slide-to="1" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Black Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -338,7 +412,7 @@
                             <div class="item-img">
                                 <img src="assets/images/large-white-pot-416x416.jpg" data-slide-to="2" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large White Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -351,7 +425,7 @@
                             <div class="item-img">
                                 <img src="assets/images/large-sky-blue-pot-416x517.jpg" data-slide-to="3" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Sky Blue Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -371,7 +445,7 @@
                             <div class="item-img">
                                 <img src="assets/images/large-baby-pink-pot-416x624.jpg" data-slide-to="0" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Baby Pink Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -384,7 +458,7 @@
                             <div class="item-img">
                                 <img src="assets/images/small-aubergine-pot-416x416.jpg" data-slide-to="1" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Aubergine Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -397,7 +471,7 @@
                             <div class="item-img">
                                 <img src="assets/images/small-clay-pot-416x400.jpg" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Clay Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
@@ -410,7 +484,7 @@
                             <div class="item-img">
                                 <img src="assets/images/small-black-glossy-pot-416x416.jpg" data-slide-to="3" alt="" />
                             </div>
-                            <div class="item-content" style="margin-left: auto; margin-right: auto;">
+                            <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Black Glossy Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
