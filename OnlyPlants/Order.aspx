@@ -76,11 +76,9 @@
                                         <span class="sign mbr-iconfont mbri-arrow-down"></span>
                                     </a>
                                 </div>
-                                <div id="collapse1_4" class="panel-body collapse pre-scrollable collapsed" role="tabpanel" aria-labelledby="headingOne">
+                                <div id="collapse1_4" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne">
                                     <asp:PlaceHolder ID="add_div" runat="server">
-
                                     </asp:PlaceHolder>
-                                   
                                 </div>
                             </div>
                         </div>

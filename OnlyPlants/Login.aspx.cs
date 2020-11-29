@@ -47,7 +47,7 @@ namespace OnlyPlants
                 HttpCookie user = new HttpCookie("USER");
                 user.Value = result;
                 Response.Cookies.Add(user);
-                user.Expires = DateTime.Now.AddMinutes(1);
+                user.Expires = DateTime.Now.AddMinutes(10);
                 Response.Redirect("~/Order");
             }
             else

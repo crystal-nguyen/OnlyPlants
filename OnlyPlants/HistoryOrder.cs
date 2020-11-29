@@ -23,6 +23,7 @@ namespace OnlyPlants
 
         public int OrderID { get => orderid; set => orderid = value; }
         public double Total { get => total; set => total = value; }
+        public List<Product> Products { get => items; }
     }
 
 
