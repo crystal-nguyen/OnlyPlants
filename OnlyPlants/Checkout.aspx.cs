@@ -22,27 +22,8 @@ namespace OnlyPlants
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            //fill in order table
 
-            using (var con = new NpgsqlConnection(connectionString))
-            {
-                con.Open();
-                Application.Lock();
-                Cart globalCart = new Cart();
-                globalCart = (Cart) Application["Cart"];
-                Application.UnLock();
-
-
-                var sql = @"INSERT INTO orders VALUES(@quantity, @deliveryType, @orderID, @deliveryTime)";
-                var cmd = new NpgsqlCommand(sql, con);
-                //cmd.Parameters.AddWithValue("quantity", totalQuantity);
-               // cmd.Parameters.AddWithValue("deliveryType", )
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-            }
-
-            //fill in order_has table//////////
+            //fill in order_has table
 
             using (var con = new NpgsqlConnection(connectionString))
             {
@@ -55,23 +36,70 @@ namespace OnlyPlants
                 var productInfo = productList.GroupBy(x => x).Select(x => new { productId = x.Key, quantity = x.Count() });
                 int totalQuantity = 0;
 
-                foreach (var prod in productInfo){
+                foreach (var prod in productInfo)//add to order_has table
+                {
                     var sql = @"INSERT INTO order_has VALUES(@productID, @orderID, @quantity)";
                     var cmd = new NpgsqlCommand(sql, con);
 
                     cmd.Parameters.AddWithValue("productID", prod.productId);
                     cmd.Parameters.AddWithValue("orderID", globalCart.OrderID);
                     cmd.Parameters.AddWithValue("quantity", prod.quantity);
+
                     totalQuantity += prod.quantity;
                     cmd.ExecuteNonQuery();
                 }
 
+                
+
+                //add to order table
+                var ordersSQL = @"INSERT INTO orders VALUES(@quantity, @deliveryType, @orderID, @deliveryTime)";
+                var cmdOrder = new NpgsqlCommand(ordersSQL, con);
+
+                cmdOrder.Parameters.AddWithValue("quantity", totalQuantity);
+
+                string deliveryMethod = deliveryType();//generate a delivery type 
+                cmdOrder.Parameters.AddWithValue("deliveryType", deliveryMethod);
+
+                cmdOrder.Parameters.AddWithValue("orderID", globalCart.OrderID);
+
+                string dayOfDelivery = deliveryDay();//calculate estimated delivery date
+                cmdOrder.Parameters.AddWithValue("deliveryTime", dayOfDelivery);
+
+                cmdOrder.ExecuteNonQuery();
+
+
+                //get the price of each product in the list and add it to the price var
+                float price = 0;
+                foreach (var prod in productInfo)//get the price from price table using the the productID
+                {
+                    string priceSQL = @"SELECT price FROM product WHERE productID=@productIDvalue";
+                    var cmdPrice = new NpgsqlCommand(priceSQL, con);
+
+                    cmdPrice.Parameters.AddWithValue("productIDvalue", prod.productId);
+
+                    NpgsqlDataReader rdr = cmdPrice.ExecuteReader();
+                    while (rdr.Read())//get the price
+                    {
+                        price += rdr.GetFloat(0);
+                    }
+                }
+
+                //add to payment table
+                var paymentSQL = @"INSERT INTO payment VALUES(@userID, @orderID, @paymentType, @paymentAmount)";
+                var cmdPayment = new NpgsqlCommand(paymentSQL, con);
+
+                cmdPayment.Parameters.AddWithValue("userID", totalQuantity);
+                cmdPayment.Parameters.AddWithValue("orderID", globalCart.OrderID);
+                cmdPayment.Parameters.AddWithValue("paymentType", totalQuantity);//get from payment typeBox Text
+                cmdPayment.Parameters.AddWithValue("paymentAmount", price);
+
+
+
                 con.Close();
 
-
-
-
             }
+
+            
 
         }
 
@@ -98,7 +126,14 @@ namespace OnlyPlants
             }
             return delivery;
         }
+
+        public string deliveryDay()
+        {
+            DateTime orderedDate = DateTime.Now;
+            DateTime deliveryDate = orderedDate.AddDays(3);
+            string day = deliveryDate.DayOfWeek.ToString();
+            return day;
+        }
     }
-
-
 }
+
