@@ -66,9 +66,9 @@
                     <div class="col-12 col-md-10">
                         <div class="section-head align-center mb-4">
                             <h3 class="mbr-section-title mb-0 mbr-fonts-style display-2">
-                                <strong>Order History</strong></h3>
+                                <strong id="order_text" runat="server"></strong></h3>
                         </div>
-                        <div id="bootstrap-toggle" class="toggle-panel accordionStyles tab-content">
+                        <div id="hi" runat="server" class="toggle-panel accordionStyles tab-content" visible="false">
                             <div class="card mb-3">
                                 <div class="card-header" role="tab" id="headingOne">
                                     <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse1_4" aria-expanded="false" aria-controls="collapse1">
@@ -77,30 +77,8 @@
                                     </a>
                                 </div>
                                 <div id="collapse1_4" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="panel-body">
-                                        <asp:Label ID="lblOrder1" runat="server" CssClass="mbr-fonts-style panel-text display-7">Hi</asp:Label>
-                                    </div>
-                                    <div class="panel-body">
-                                        <asp:Label ID="Label1" runat="server" CssClass="mbr-fonts-style panel-text display-7">Ji</asp:Label>
-                                    </div>
-                                    <div class="panel-body">
-                                        <asp:Label ID="Label2" runat="server" CssClass="mbr-fonts-style panel-text display-7">Hi</asp:Label>
-                                    </div>
-                                    <div class="panel-body">
-                                        <asp:Label ID="Label3" runat="server" CssClass="mbr-fonts-style panel-text display-7">Ji</asp:Label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3">
-                                <div class="card-header" role="tab" id="headingTwo">
-                                    <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse2_4" aria-expanded="false" aria-controls="collapse2">
-                                        <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Order 2</strong></h6>
-                                        <span class="sign mbr-iconfont mbri-arrow-down"></span></a>
-                                </div>
-                                <div id="collapse2_4" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="panel-body">
-                                        <asp:Label ID="lblOrder2" runat="server" CssClass="mbr-fonts-style panel-text display-7" Text="lblOrder2"></asp:Label>
-                                    </div>
+                                    <asp:PlaceHolder ID="add_div" runat="server">
+                                    </asp:PlaceHolder>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +87,7 @@
             </div>
         </section>
 
-        <section class="footer3 cid-sgaNoV01rM" id="footer3-1c">
+        <section class="footer3 cid-sgaNoV01rM" once="footers" id="footer3-1c">
             <div class="container">
                 <div class="media-container-row align-center mbr-white">
                     <div class="row row-links">
