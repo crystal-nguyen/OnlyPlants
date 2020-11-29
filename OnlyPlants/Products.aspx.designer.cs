@@ -15,6 +15,24 @@ namespace OnlyPlants
     {
 
         /// <summary>
+        /// dropdownValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden dropdownValue;
+
+        /// <summary>
+        /// dd100 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dd100;
+
+        /// <summary>
         /// a100 control.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,15 @@ namespace OnlyPlants
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button a100;
+
+        /// <summary>
+        /// dd101 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dd101;
 
         /// <summary>
         /// a101 control.
