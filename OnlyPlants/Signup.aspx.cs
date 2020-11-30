@@ -36,6 +36,7 @@ namespace OnlyPlants
             try {
                 using(var con = new NpgsqlConnection(connectionString))
                 {
+                    // get the userid 
                     con.Open();
                     var sql = @"SELECT userid FROM users WHERE login = @username";
                     using(var cmd = new NpgsqlCommand(sql, con))
@@ -52,66 +53,67 @@ namespace OnlyPlants
                     }
                     con.Close();
                 }
-            }
-            catch { }
 
-            if(result == "")
-            {
-                try
+                //user doesn't exist
+                if (result == "")
                 {
-                    using (var con = new NpgsqlConnection(connectionString))
+                    try
                     {
-                        con.Open();
-                        int new_userid = 0;
-                        // get max user id
-                        var maxid = @"select max(userid) from users";
-                        using (var cmd = new NpgsqlCommand(maxid, con))
+                        using (var con = new NpgsqlConnection(connectionString))
                         {
-                            using (NpgsqlDataReader dr = cmd.ExecuteReader())
+                            con.Open();
+                            int new_userid = 0;
+                            // get max user id and generate new userid
+                            var maxid = @"select max(userid) from users";
+                            using (var cmd = new NpgsqlCommand(maxid, con))
                             {
-                                while (dr.Read())
+                                using (NpgsqlDataReader dr = cmd.ExecuteReader())
                                 {
-                                    new_userid = dr.GetInt32(0) + 1;
+                                    while (dr.Read())
+                                    {
+                                        new_userid = dr.GetInt32(0) + 1;
 
+                                    }
                                 }
                             }
-                        }
 
-                        // insert into user table
-                        var insert = @"insert into users(userid, firstname, lastname, login, password) " +
-                            @"values (@userid, @fname, @lname, @login, @pass)";
-                        using (var cmd = new NpgsqlCommand(insert, con))
-                        {
-                            cmd.Parameters.AddWithValue("userid", new_userid);
-                            cmd.Parameters.AddWithValue("fname", f_name_tb.Text);
-                            cmd.Parameters.AddWithValue("lname", l_name_tb.Text);
-                            cmd.Parameters.AddWithValue("login", username_tb.Text);
-                            cmd.Parameters.AddWithValue("pass", pass_tb.Text);
-                            cmd.ExecuteNonQuery();
-                        }
+                            // insert into user table
+                            var insert = @"insert into users(userid, firstname, lastname, login, password) " +
+                                @"values (@userid, @fname, @lname, @login, @pass)";
+                            using (var cmd = new NpgsqlCommand(insert, con))
+                            {
+                                cmd.Parameters.AddWithValue("userid", new_userid);
+                                cmd.Parameters.AddWithValue("fname", f_name_tb.Text);
+                                cmd.Parameters.AddWithValue("lname", l_name_tb.Text);
+                                cmd.Parameters.AddWithValue("login", username_tb.Text);
+                                cmd.Parameters.AddWithValue("pass", pass_tb.Text);
+                                cmd.ExecuteNonQuery();
+                            }
 
-                        //insert into customer table
-                        var customer = @"insert into customer(userid, address, email, dateofbirth) " +
-                            @"values(@userid, @addy, @email, @dob)";
-                        using (var cmd = new NpgsqlCommand(customer, con))
-                        {
-                            cmd.Parameters.AddWithValue("userid", new_userid);
-                            cmd.Parameters.AddWithValue("addy", add1_tb.Text + add2_tb.Text);
-                            cmd.Parameters.AddWithValue("email", email_tb.Text);
-                            cmd.Parameters.AddWithValue("dob", bday_tb.Text);
-                            cmd.ExecuteNonQuery();
+                            //insert into customer table
+                            var customer = @"insert into customer(userid, address, email, dateofbirth) " +
+                                @"values(@userid, @addy, @email, @dob)";
+                            using (var cmd = new NpgsqlCommand(customer, con))
+                            {
+                                cmd.Parameters.AddWithValue("userid", new_userid);
+                                cmd.Parameters.AddWithValue("addy", add1_tb.Text + add2_tb.Text);
+                                cmd.Parameters.AddWithValue("email", email_tb.Text);
+                                cmd.Parameters.AddWithValue("dob", bday_tb.Text);
+                                cmd.ExecuteNonQuery();
 
+                            }
+                            con.Close();
                         }
-                        con.Close();
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "AccountCreated();", true);
                     }
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "AccountCreated();", true);
+                    catch { }
                 }
-                catch { }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "UserExists();", true);
+                }
             }
-            else
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "UserExists();", true);
-            }
+            catch { }
         }
     }
 }

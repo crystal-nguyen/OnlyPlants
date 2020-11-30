@@ -25,6 +25,7 @@ namespace OnlyPlants
                     Port,
                     Password);
 
+        //add divs based on number of products in the order
         protected void add_divs(HistoryOrder hist_order)
         {
             for(int i = 0; i < hist_order.Products.Count; i++)
@@ -42,6 +43,7 @@ namespace OnlyPlants
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if the user is logge in, show their most recent order
             HttpCookie user = Request.Cookies["USER"];
             if(user != null)
             {
@@ -82,6 +84,7 @@ namespace OnlyPlants
                         }
                         else
                         {
+                            // if there is a recent order, query the most recent
                             var productsQuantity = @"select order_has.quantity,products.name " +
                            @"from order_has,products where orderid = @oid and order_has.productid=products.productid";
                             using(var cmd = new NpgsqlCommand(productsQuantity, con))
@@ -90,7 +93,7 @@ namespace OnlyPlants
                                 using(NpgsqlDataReader dr = cmd.ExecuteReader())
                                 {
 
-                                    // get the items in the order and add to a list of products
+                                    // get the items in the order and add to a list of products (product names and quantity)
                                     while(dr.Read())
                                     {
                                         hist_order.addProduct(dr.GetInt32(0), dr.GetString(1));
@@ -98,6 +101,8 @@ namespace OnlyPlants
                                 }
 
                             }
+
+                            //show the most recent order
                             add_divs(hist_order);
                             order_text.InnerText = "Most Recent Order";
                             hi.Visible = true;

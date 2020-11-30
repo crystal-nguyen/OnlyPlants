@@ -33,6 +33,7 @@ namespace OnlyPlants
         {
             try
             {
+                // connect to db
                 string result = "";
                 using (var con = new NpgsqlConnection(connectionString))
                 {
@@ -54,6 +55,8 @@ namespace OnlyPlants
                     con.Close();
 
                 }
+
+                // redirect to order page when the user successfully logs in
                 if (result != "")
                 {
                     // remember the user
@@ -66,6 +69,8 @@ namespace OnlyPlants
                 else
                 {
                     // login error popup
+                    username.Text = "";
+                    password.Text = "";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "Fail();", true);
                 }
             }

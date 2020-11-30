@@ -26,6 +26,7 @@ namespace OnlyPlants
                     Port,
                     Password);
 
+        // add divs based on number of produts in the order
         private void add_divs(List<int> prods)
         {
             for (int i = 0; i < prods.Count; i++)
@@ -58,7 +59,7 @@ namespace OnlyPlants
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            // show cart preview
+            // show cart preview if the cart isn't empty
             if (((Cart)Application["Cart"]).ProductList.Count != 0)
             {
                 Cart globalCart = (Cart)Application["Cart"];
@@ -71,8 +72,7 @@ namespace OnlyPlants
         protected void submit_Click(object sender, EventArgs e)
         {
 
-            //fill in order_has table
-
+            //connect to the db
             using (var con = new NpgsqlConnection(connectionString))
             {
                 con.Open();
@@ -85,6 +85,7 @@ namespace OnlyPlants
                 int totalQuantity = 0;
                 double price = 0;
 
+                //get total quantity
                 foreach (var prod in productInfo)
                 {
                     totalQuantity += prod.quantity;
@@ -160,6 +161,8 @@ namespace OnlyPlants
                         cmdPayment.Parameters.AddWithValue("paymentAmount", price);
                         cmdPayment.ExecuteNonQuery();
                     }
+
+                    // success
                     ((Cart)Application["Cart"]).ProductList.Clear();
                     ((Cart)Application["Cart"]).QuantityList.Clear();
                     name_tb.Text = "";
