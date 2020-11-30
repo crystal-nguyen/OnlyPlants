@@ -29,11 +29,11 @@ namespace OnlyPlants
                 {
                     cmd.Parameters.AddWithValue("username", username_tb.Text);
 
-                    using(NpgsqlDataReader dr = cmd.ExecuteReader())
+                    using (NpgsqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {
-                            result += dr.GetInt32(0);
+                            result = dr.GetInt32(0).ToString();
                         }
                     }
 
@@ -41,9 +41,74 @@ namespace OnlyPlants
                 con.Close();
 
             }
-            alertType = result == "" ? "alert_success" : "alert_danger";
-            alertmsg.Visible = true;
-            
+            if (result == "")
+            {
+                try
+                {
+                    using (var con = new NpgsqlConnection(connectionString))
+                    {
+
+                        con.Open();
+                        int new_userid = 0;
+                        // get max user id
+                        var maxid = @"select max(userid) from users";
+                        using (var cmd = new NpgsqlCommand(maxid, con))
+                        {
+                            using (NpgsqlDataReader dr = cmd.ExecuteReader())
+                            {
+                                while (dr.Read())
+                                {
+                                    new_userid = dr.GetInt32(0) + 1;
+
+                                }
+                            }
+
+                        }
+
+                        // insert into user table
+                        var insert = @"insert into users(userid, firstname, lastname, login, password) " +
+                            @"values (@userid, @fname, @lname, @login, @pass)";
+                        using (var cmd = new NpgsqlCommand(insert, con))
+                        {
+                            cmd.Parameters.AddWithValue("userid", new_userid);
+                            cmd.Parameters.AddWithValue("fname", f_name_tb.Text);
+                            cmd.Parameters.AddWithValue("lname", l_name_tb.Text);
+                            cmd.Parameters.AddWithValue("login", username_tb.Text);
+                            cmd.Parameters.AddWithValue("pass", pass_tb.Text);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        //insert into customer table
+                        var customer = @"insert into customer(userid, address, email, dateofbirth) " +
+                            @"values(@userid, @addy, @email, @dob)";
+                        using (var cmd = new NpgsqlCommand(customer, con))
+                        {
+                            cmd.Parameters.AddWithValue("userid", new_userid);
+                            cmd.Parameters.AddWithValue("addy", add1_tb.Text + add2_tb.Text);
+                            cmd.Parameters.AddWithValue("email", email_tb.Text);
+                            cmd.Parameters.AddWithValue("dob", bday_tb.Text);
+                            cmd.ExecuteNonQuery();
+
+                        }
+                        con.Close();
+                    }
+                    alert_msg.InnerText = "Account Created!";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowPopup();", true);
+                }
+                catch
+                {
+
+                }
+
+
+
+            }
+            else
+            {
+                alert_msg.InnerText = "User Already Exists!";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowPopup();", true);
+
+            }
         }
     }
 }

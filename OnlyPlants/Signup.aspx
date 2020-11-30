@@ -25,9 +25,55 @@
     <link rel="stylesheet" href="assets/theme/css/style.css" />
     <link rel="preload" href="assets/mobirise/css/mbr-additional.css" />
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css" />
+
+    <style>
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .modal-body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
+        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modal-new-secFolder" aria-hidden="true">
+            <div class="modal-dialog" style="height: 150px; width: 250px;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="mbr-fonts-style panel-text display-7" id="alert_msg" runat="server">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function ShowPopup() {
+                $('#myModal').modal('show');
+            }
+        </script>
         <section class="menu menu2 cid-sgaMjCw33X" id="menu2-1i">
             <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
                 <div class="container-fluid">
