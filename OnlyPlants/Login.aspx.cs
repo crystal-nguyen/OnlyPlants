@@ -19,41 +19,46 @@ namespace OnlyPlants
         }
         protected void submit_Click(object sender, EventArgs e)
         {
-            string result = "";
-            using (var con = new NpgsqlConnection(connectionString))
+            try
             {
-                con.Open();
-                var sql = @"SELECT userid FROM users WHERE login = @username AND password = @pass";
-                using (var cmd = new NpgsqlCommand(sql, con))
+                string result = "";
+                using (var con = new NpgsqlConnection(connectionString))
                 {
-                    cmd.Parameters.AddWithValue("username", username.Text);
-                    cmd.Parameters.AddWithValue("pass", password.Text);
-
-                    using (NpgsqlDataReader dr = cmd.ExecuteReader())
+                    con.Open();
+                    var sql = @"SELECT userid FROM users WHERE login = @username AND password = @pass";
+                    using (var cmd = new NpgsqlCommand(sql, con))
                     {
-                        while (dr.Read())
+                        cmd.Parameters.AddWithValue("username", username.Text);
+                        cmd.Parameters.AddWithValue("pass", password.Text);
+
+                        using (NpgsqlDataReader dr = cmd.ExecuteReader())
                         {
-                            result += dr.GetInt32(0).ToString();
+                            while (dr.Read())
+                            {
+                                result = dr.GetInt32(0).ToString();
+                            }
                         }
+
                     }
+                    con.Close();
 
                 }
-                con.Close();
+                if (result != "")
+                {
+                    // remember the user
+                    HttpCookie user = new HttpCookie("USER");
+                    user.Value = result;
+                    Response.Cookies.Add(user);
+                    user.Expires = DateTime.Now.AddMinutes(10);
+                    Response.Redirect("~/Order");
+                }
+                else
+                {
+                    // login error popup
+                }
 
             }
-            if (result != null)
-            {
-                // remember the user
-                HttpCookie user = new HttpCookie("USER");
-                user.Value = result;
-                Response.Cookies.Add(user);
-                user.Expires = DateTime.Now.AddMinutes(10);
-                Response.Redirect("~/Order");
-            }
-            else
-            {
-                // wrong login
-            }
+            catch { }
         }
     }
 }
