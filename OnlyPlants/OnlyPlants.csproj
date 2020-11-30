@@ -237,6 +237,9 @@
     <Content Include="assets\web\assets\mobirise-icons2\mobirise2.eot" />
     <Content Include="assets\web\assets\mobirise-icons2\mobirise2.ttf" />
     <Content Include="assets\web\assets\mobirise-icons2\mobirise2.woff" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\OnlyPlants - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\OnlyPlants - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="assets\mbr-switch-arrow\mbr-switch-arrow.js" />

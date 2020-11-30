@@ -25,9 +25,48 @@
     <link rel="stylesheet" href="assets/theme/css/style.css" />
     <link rel="preload" href="assets/mobirise/css/mbr-additional.css" />
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css" />
+
+    <style>
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .modal-body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
+        <script>
+            function AccountCreated() {
+                alert("Account Created!");
+            }
+
+            function UserExists() {
+                alert("User Exists!");
+            }
+        </script>
         <section class="menu menu2 cid-sgaMjCw33X" id="menu2-1i">
             <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
                 <div class="container-fluid">
@@ -63,9 +102,6 @@
 
         <section class="form7 cid-sgaWPLfnmj" id="form7-1l">
             <div class="container">
-                <div style="margin-left: 100px" class="<%alertType %>" visible="true" id="alertmsg" runat="server">
-                    <h4><strong>Oh no!</strong> User already exists. Try again.</h4>
-                </div>
                 <div class="mbr-section-head">
                     <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
                         <strong>Sign Up</strong>

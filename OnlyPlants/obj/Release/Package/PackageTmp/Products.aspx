@@ -73,16 +73,6 @@
         </script>
 
         <input type="hidden" id="dropdownValue" runat="server" value="Midnight Navy" />
-
-        <script>
-            function getDropdownValue(pid) {
-                var dropDownId = "dd" + pid;
-                var newValue = document.getElementById(dropDownId).value
-                document.getElementById("dropdownValue").value = newValue;
-                //alert(dropdownValue.value);
-            }
-        </script>
-
         <section class="menu menu2 cid-sgaMjCw33X" id="menu2-2u">
             <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
                 <div class="container-fluid">
@@ -130,12 +120,6 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Monsterra</strong></h5>
                             </div>
-                            
-                            <asp:DropDownList ID="dd100" runat="server">
-                                <asp:ListItem Selected="True" Value="Red"> Red </asp:ListItem>
-                                <asp:ListItem Value="Blue"> Blue </asp:ListItem>
-                            </asp:DropDownList>
-
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
                                 <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClientClick="getDropdownValue(100);" OnClick="OnAddToCart" ID="a100" />
                             </div>
@@ -149,15 +133,6 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Fiddle Leaf</strong></h5>
                             </div>
-
-                            <asp:DropDownList ID="dd101" runat="server">
-                                <asp:ListItem Selected="True" Value="White"> White </asp:ListItem>
-                                <asp:ListItem Value="Silver"> Silver </asp:ListItem>
-                                <asp:ListItem Value="DarkGray"> Dark Gray </asp:ListItem>
-                                <asp:ListItem Value="Khaki"> Khaki </asp:ListItem>
-                                <asp:ListItem Value="DarkKhaki"> Dark Khaki </asp:ListItem>
-                            </asp:DropDownList>
-
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
                                 <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a101" />
                             </div>

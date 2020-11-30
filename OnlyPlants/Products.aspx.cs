@@ -10,7 +10,20 @@ namespace OnlyPlants
 {
     public partial class Products : System.Web.UI.Page
     {
-        private string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=$(password);Database=onlyplants";
+        private static string Host = "onlyplants-db.postgres.database.azure.com";
+        private static string User = "onlyplants@onlyplants-db";
+        private static string DBname = "onlyplants";
+        private static string Password = "password!0";
+        private static string Port = "5432";
+
+        private string connectionString = String.Format(
+                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
+                    Host,
+                    User,
+                    DBname,
+                    Port,
+                    Password);
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

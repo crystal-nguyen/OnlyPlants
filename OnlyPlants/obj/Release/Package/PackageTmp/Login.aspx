@@ -28,6 +28,13 @@
 </head>
 <body>
     <form runat="server">
+
+        <script>
+            function Fail() {
+                alert("Failed to log in!");
+            }
+        </script>
+
         <section class="menu menu2 cid-sgaMjCw33X" id="menu2-1b">
             <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
                 <div class="container-fluid">

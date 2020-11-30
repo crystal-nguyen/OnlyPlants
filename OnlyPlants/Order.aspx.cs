@@ -11,6 +11,20 @@ namespace OnlyPlants
 {
     public partial class Order : System.Web.UI.Page
     {
+        private static string Host = "onlyplants-db.postgres.database.azure.com";
+        private static string User = "onlyplants@onlyplants-db";
+        private static string DBname = "onlyplants";
+        private static string Password = "password!0";
+        private static string Port = "5432";
+
+        private string connectionString = String.Format(
+                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
+                    Host,
+                    User,
+                    DBname,
+                    Port,
+                    Password);
+
         protected void add_divs(HistoryOrder hist_order)
         {
             for(int i = 0; i < hist_order.Products.Count; i++)
@@ -25,7 +39,7 @@ namespace OnlyPlants
             total_div.InnerText = "Total: $" + hist_order.Total;
             add_div.Controls.Add(total_div);
         }
-        private string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=$(password);Database=onlyplants";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpCookie user = Request.Cookies["USER"];
