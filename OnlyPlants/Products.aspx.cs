@@ -20,11 +20,14 @@ namespace OnlyPlants
 
             Button clickedButton = sender as Button;
             int productid = Convert.ToInt32((clickedButton.ID).Remove(0,1));
+            //string value = dropdownValue.Value;
 
             // add the product id to the cart
             Application.Lock();
             ((Cart)Application["Cart"]).ProductList.Add(productid);
             Application.UnLock();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowPopup();", true);
         }
     }
 }

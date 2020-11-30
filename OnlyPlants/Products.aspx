@@ -22,9 +22,57 @@
     <link rel="stylesheet" href="assets/theme/css/style.css" />
     <link rel="preload" href="assets/mobirise/css/mbr-additional.css" />
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css" />
+
+    <style>
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .modal-body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
+
+        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modal-new-secFolder" aria-hidden="true">
+            <div class="modal-dialog" style="height: 150px; width: 250px;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>Added to cart!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function ShowPopup() {
+                $('#myModal').modal('show');
+            }
+        </script>
+
+        <input type="hidden" id="dropdownValue" runat="server" value="Midnight Navy" />
         <section class="menu menu2 cid-sgaMjCw33X" id="menu2-2u">
             <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
                 <div class="container-fluid">
@@ -72,8 +120,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Monsterra</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a100" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClientClick="getDropdownValue(100);" OnClick="OnAddToCart" ID="a100" />
                             </div>
                         </div>
                     </div>
@@ -85,11 +133,12 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Fiddle Leaf</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a101" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a101" />
                             </div>
                         </div>
                     </div>
+
                     <div class="item features-image сol-12 col-md-6 col-lg-3">
                         <div class="item-wrapper">
                             <div class="item-img">
@@ -98,8 +147,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Spider Plant</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a102" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a102" />
                             </div>
                         </div>
                     </div>
@@ -111,8 +160,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Aloe Vera</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a103" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a103" />
                             </div>
                         </div>
                     </div>
@@ -131,8 +180,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Peace Lilly</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a104" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a104" />
                             </div>
                         </div>
                     </div>
@@ -144,8 +193,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Snake Plant</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a105" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a105" />
                             </div>
                         </div>
                     </div>
@@ -157,8 +206,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Bromeliad</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a106" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a106" />
                             </div>
                         </div>
                     </div>
@@ -170,8 +219,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Orchid</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a107" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a107" />
                             </div>
                         </div>
                     </div>
@@ -193,8 +242,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Dandelion</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a1" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a1" />
                             </div>
                         </div>
                     </div>
@@ -206,8 +255,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Sunflower</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a2" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a2" />
                             </div>
                         </div>
                     </div>
@@ -219,8 +268,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Zinnia</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a3" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a3" />
                             </div>
                         </div>
                     </div>
@@ -232,8 +281,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Dahlia</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a4" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a4" />
                             </div>
                         </div>
                     </div>
@@ -252,8 +301,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Petunia</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a5" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a5" />
                             </div>
                         </div>
                     </div>
@@ -265,8 +314,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Pansy</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a6" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a6" />
                             </div>
                         </div>
                     </div>
@@ -278,8 +327,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Calendula</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a7" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a7" />
                             </div>
                         </div>
                     </div>
@@ -291,8 +340,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Cornflower</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a8" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a8" />
                             </div>
                         </div>
                     </div>
@@ -315,8 +364,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Red Pot</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a200" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a200" />
                             </div>
                         </div>
                     </div>
@@ -328,8 +377,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Black Pot</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a201" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a201" />
                             </div>
                         </div>
                     </div>
@@ -341,8 +390,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large White Pot</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a202" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a202" />
                             </div>
                         </div>
                     </div>
@@ -354,8 +403,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Sky Blue Pot</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a203" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a203" />
                             </div>
                         </div>
                     </div>
@@ -374,8 +423,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Baby Pink Pot</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a204" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a204" />
                             </div>
                         </div>
                     </div>
@@ -387,8 +436,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Aubergine Pot</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a205" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a205" />
                             </div>
                         </div>
                     </div>
@@ -400,8 +449,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Clay Pot</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a206" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a206" />
                             </div>
                         </div>
                     </div>
@@ -413,8 +462,8 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Black Glossy Pot</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" id="a207" />
+                            <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
+                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a207" />
                             </div>
                         </div>
                     </div>
