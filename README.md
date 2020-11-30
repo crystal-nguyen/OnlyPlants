@@ -1,6 +1,9 @@
 # OnlyPlants
 
-### Setting up the project:
+### Website link: </br>
+https://onlyplants.azurewebsites.net/
+
+### Setting up the project locally:
 Make sure to set up the database dump first on your local machine </br>
     `psql -d $(local database) -U $(local user) -f onlyplants.sql`
     
