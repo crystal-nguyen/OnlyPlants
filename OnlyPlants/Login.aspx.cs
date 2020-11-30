@@ -12,7 +12,7 @@ namespace OnlyPlants
 {
     public partial class Login : System.Web.UI.Page
     {
-        private string connectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=0204999503cN;Database=postgres";
+        private string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=$(password);Database=onlyplants";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -38,7 +38,6 @@ namespace OnlyPlants
                                 result = dr.GetInt32(0).ToString();
                             }
                         }
-
                     }
                     con.Close();
 
@@ -55,8 +54,8 @@ namespace OnlyPlants
                 else
                 {
                     // login error popup
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "Fail();", true);
                 }
-
             }
             catch { }
         }

@@ -25,7 +25,7 @@ namespace OnlyPlants
             total_div.InnerText = "Total: $" + hist_order.Total;
             add_div.Controls.Add(total_div);
         }
-        private string connectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=0204999503cN;Database=postgres";
+        private string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=$(password);Database=onlyplants";
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpCookie user = Request.Cookies["USER"];
@@ -35,60 +35,64 @@ namespace OnlyPlants
                 double payment_amt = 0.0; 
                 int orderid = 0;
                 HistoryOrder hist_order = new HistoryOrder();
-                using (var con = new NpgsqlConnection(connectionString))
+
+                try
                 {
-                    con.Open();
-                    // get total amount from most recent order
-                    var totalPayment = @" select paymentamount, orderid from payment " +
-                        @"where orderid in (select max(orderid) from payment" +
-                        @" where userid=@uid)";
-                    using (var cmd = new NpgsqlCommand(totalPayment, con))
+                    using(var con = new NpgsqlConnection(connectionString))
                     {
-                        cmd.Parameters.AddWithValue("uid", userid);
-
-                        using (NpgsqlDataReader dr = cmd.ExecuteReader())
+                        con.Open();
+                        // get total amount from most recent order
+                        var totalPayment = @" select paymentamount, orderid from payment " +
+                            @"where orderid in (select max(orderid) from payment" +
+                            @" where userid=@uid)";
+                        using(var cmd = new NpgsqlCommand(totalPayment, con))
                         {
-                            
-                            // get the most recent order for the user
-                            while (dr.Read())
-                            {
-                                payment_amt = dr.GetDouble(0);
-                                orderid = dr.GetInt32(1);
-                            }
-                        }
+                            cmd.Parameters.AddWithValue("uid", userid);
 
-                    }
-                    hist_order.OrderID = orderid;
-                    hist_order.Total = payment_amt;
-                    if (orderid == 0)
-                    {
-                        order_text.InnerText = "No Recent Orders :(";
-                    }
-                    else
-                    {
-                        var productsQuantity = @"select order_has.quantity,products.name " +
-                       @"from order_has,products where orderid = @oid and order_has.productid=products.productid";
-                        using (var cmd = new NpgsqlCommand(productsQuantity, con))
-                        {
-                            cmd.Parameters.AddWithValue("oid", orderid);
-                            using (NpgsqlDataReader dr = cmd.ExecuteReader())
+                            using(NpgsqlDataReader dr = cmd.ExecuteReader())
                             {
-
-                                // get the items in the order and add to a list of products
-                                while (dr.Read())
+                                // get the most recent order for the user
+                                while(dr.Read())
                                 {
-                                    hist_order.addProduct(dr.GetInt32(0), dr.GetString(1));
+                                    payment_amt = dr.GetDouble(0);
+                                    orderid = dr.GetInt32(1);
                                 }
                             }
 
                         }
-                        add_divs(hist_order);
-                        order_text.InnerText = "Most Recent Order";
-                        hi.Visible = true;
-                        order1.InnerText = "Order #" + orderid;
+                        hist_order.OrderID = orderid;
+                        hist_order.Total = payment_amt;
+                        if(orderid == 0)
+                        {
+                            order_text.InnerText = "No Recent Orders :(";
+                        }
+                        else
+                        {
+                            var productsQuantity = @"select order_has.quantity,products.name " +
+                           @"from order_has,products where orderid = @oid and order_has.productid=products.productid";
+                            using(var cmd = new NpgsqlCommand(productsQuantity, con))
+                            {
+                                cmd.Parameters.AddWithValue("oid", orderid);
+                                using(NpgsqlDataReader dr = cmd.ExecuteReader())
+                                {
+
+                                    // get the items in the order and add to a list of products
+                                    while(dr.Read())
+                                    {
+                                        hist_order.addProduct(dr.GetInt32(0), dr.GetString(1));
+                                    }
+                                }
+
+                            }
+                            add_divs(hist_order);
+                            order_text.InnerText = "Most Recent Order";
+                            hi.Visible = true;
+                            order1.InnerText = "Order #" + orderid;
+                        }
+                        con.Close();
                     }
-                    con.Close();
                 }
+                catch { }
             }
             else{
                 order_text.InnerText = "Couldnt Fetch Order History - Not Logged In :(";
