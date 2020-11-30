@@ -58,20 +58,13 @@
 </head>
 <body>
     <form runat="server">
-        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modal-new-secFolder" aria-hidden="true">
-            <div class="modal-dialog" style="height: 150px; width: 250px;">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="mbr-fonts-style panel-text display-7" id="alert_msg" runat="server">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <script>
-            function ShowPopup() {
-                $('#myModal').modal('show');
+            function AccountCreated() {
+                alert("Account Created!");
+            }
+
+            function UserExists() {
+                alert("User Exists!");
             }
         </script>
         <section class="menu menu2 cid-sgaMjCw33X" id="menu2-1i">
@@ -109,9 +102,6 @@
 
         <section class="form7 cid-sgaWPLfnmj" id="form7-1l">
             <div class="container">
-                <div style="margin-left: 100px" class="<%alertType %>" visible="true" id="alertmsg" runat="server">
-                    <h4><strong>Oh no!</strong> User already exists. Try again.</h4>
-                </div>
                 <div class="mbr-section-head">
                     <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
                         <strong>Sign Up</strong>

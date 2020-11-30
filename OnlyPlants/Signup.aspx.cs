@@ -12,7 +12,7 @@ namespace OnlyPlants
     public partial class Signup : System.Web.UI.Page
     {
         private string alertType { get; set; }
-        private string connectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=0204999503cN;Database=postgres";
+        private string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=$(password);Database=onlyplants";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,33 +21,34 @@ namespace OnlyPlants
         protected void signUp_Click(object sender, EventArgs e)
         {
             string result = "";
-            using (var con = new NpgsqlConnection(connectionString))
-            {
-                con.Open();
-                var sql = @"SELECT userid FROM users WHERE login = @username";
-                using (var cmd = new NpgsqlCommand(sql, con))
+            try {
+                using(var con = new NpgsqlConnection(connectionString))
                 {
-                    cmd.Parameters.AddWithValue("username", username_tb.Text);
-
-                    using (NpgsqlDataReader dr = cmd.ExecuteReader())
+                    con.Open();
+                    var sql = @"SELECT userid FROM users WHERE login = @username";
+                    using(var cmd = new NpgsqlCommand(sql, con))
                     {
-                        while (dr.Read())
+                        cmd.Parameters.AddWithValue("username", username_tb.Text);
+
+                        using(NpgsqlDataReader dr = cmd.ExecuteReader())
                         {
-                            result = dr.GetInt32(0).ToString();
+                            while(dr.Read())
+                            {
+                                result = dr.GetInt32(0).ToString();
+                            }
                         }
                     }
-
+                    con.Close();
                 }
-                con.Close();
-
             }
-            if (result == "")
+            catch { }
+
+            if(result == "")
             {
                 try
                 {
                     using (var con = new NpgsqlConnection(connectionString))
                     {
-
                         con.Open();
                         int new_userid = 0;
                         // get max user id
@@ -62,7 +63,6 @@ namespace OnlyPlants
 
                                 }
                             }
-
                         }
 
                         // insert into user table
@@ -92,22 +92,13 @@ namespace OnlyPlants
                         }
                         con.Close();
                     }
-                    alert_msg.InnerText = "Account Created!";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowPopup();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "AccountCreated();", true);
                 }
-                catch
-                {
-
-                }
-
-
-
+                catch { }
             }
             else
             {
-                alert_msg.InnerText = "User Already Exists!";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "ShowPopup();", true);
-
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "UserExists();", true);
             }
         }
     }
