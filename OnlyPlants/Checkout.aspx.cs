@@ -92,7 +92,7 @@ namespace OnlyPlants
                 cmdPayment.Parameters.AddWithValue("orderID", globalCart.OrderID);
                 cmdPayment.Parameters.AddWithValue("paymentType", totalQuantity);//get from payment typeBox Text
                 cmdPayment.Parameters.AddWithValue("paymentAmount", price);
-                cmd.ExecuteNonQuery();
+                cmdPayment.ExecuteNonQuery();
 
 
                 con.Close();
