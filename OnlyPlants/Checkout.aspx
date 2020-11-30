@@ -11,6 +11,8 @@
 
     <title>Checkout</title>
     <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css" />
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css" />
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css" />
     <link rel="stylesheet" href="assets/tether/tether.min.css" />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css" />
@@ -24,6 +26,7 @@
     <link rel="stylesheet" href="assets/theme/css/style.css" />
     <link rel="preload" href="assets/mobirise/css/mbr-additional.css" />
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css" />
+
 </head>
 <body>
     <form runat="server">
@@ -58,11 +61,40 @@
             </nav>
         </section>
 
-        <section class="form5 cid-sgb0vDhjlS" id="form5-2d">
+        <section class="content17 cid-sh2ujAWPl2" id="content17-2t">
+            <div class="container">
             <div class="container">
                 <div class="mbr-section-head">
                     <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Checkout</strong></h3>
                 </div>
+            </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10">
+                        <div class="section-head align-center mb-4">
+                            <h3 class="mbr-section-title mb-0 mbr-fonts-style display-2">
+                                <strong id="order_text" runat="server"></strong></h3>
+                        </div>
+                        <div id="hi" runat="server" class="toggle-panel accordionStyles tab-content" visible="false">
+                            <div class="card mb-3">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" aria-expanded="false" aria-controls="collapse1">
+                                        <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Cart Preview</strong></h6>
+                                        <span class="sign mbr-iconfont mbri-arrow-down"></span>
+                                    </a>
+                                </div>
+                                <div id="collapse1_4" class="panel-collapse noScroll collpased" role="tabpanel" aria-labelledby="headingOne">
+                                    <asp:PlaceHolder ID="add_div" runat="server">
+                                    </asp:PlaceHolder>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form5 cid-sgb0vDhjlS" id="form5-2d">
+            
                 <div class="row justify-content-center mt-4">
                     <div class="dragArea row">
                         <div class="col-md col-sm-12 form-group" data-for="name">
@@ -74,18 +106,12 @@
                         <div class="col-12 form-group" data-for="url">
                             <asp:TextBox runat="server" placeholder="Card Number" CssClass="form-control" ID="card_tb"></asp:TextBox>
                         </div>
-                        <div class="col-12 form-group" data-for="textarea">
-                            <asp:TextBox runat="server" placeholder="Additional notes" CssClass="form-control" ID="order_items"></asp:TextBox>
-                        </div>
-                        <div class="col-12 form-group" data-for="textarea">
-                            <asp:TextBox runat="server" TextMode="MultiLine" placeholder="Leave additional notes" CssClass="form-control" ID="notes_tb"></asp:TextBox>
-                        </div>
+                       
                         <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
                             <asp:Button Text="Submit Order" CssClass="btn btn-primary display-4" runat="server" OnClick="submit_Click" />
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <section class="footer3 cid-sgaNoV01rM" id="footer3-13">

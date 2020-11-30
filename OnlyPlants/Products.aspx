@@ -59,7 +59,7 @@
         <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modal-new-secFolder" aria-hidden="true">
             <div class="modal-dialog" style="height: 150px; width: 250px;">
                 <div class="modal-content">
-                    <div class="modal-body">
+                    <div class="mbr-fonts-style panel-text display-7">
                         <h3>Added to cart!</h3>
                     </div>
                 </div>
