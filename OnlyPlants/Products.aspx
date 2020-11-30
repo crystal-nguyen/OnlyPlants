@@ -123,7 +123,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Monsterra</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClientClick="getDropdownValue(100);" OnClick="OnAddToCart" ID="a100" />
+                                <asp:Button Text="$12.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a100" />
                             </div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Fiddle Leaf</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a101" />
+                                <asp:Button Text="$0.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a101" />
                             </div>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Spider Plant</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a102" />
+                                <asp:Button Text="$14.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a102" />
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Aloe Vera</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a103" />
+                                <asp:Button Text="$14.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a103" />
                             </div>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Peace Lilly</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a104" />
+                                <asp:Button Text="$19.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a104" />
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Snake Plant</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a105" />
+                                <asp:Button Text="$14.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a105" />
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Bromeliad</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a106" />
+                                <asp:Button Text="$9.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a106" />
                             </div>
                         </div>
                     </div>
@@ -222,7 +222,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Orchid</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a107" />
+                                <asp:Button Text="$9.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a107" />
                             </div>
                         </div>
                     </div>
@@ -245,7 +245,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Dandelion</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a1" />
+                                <asp:Button Text="$1.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a1" />
                             </div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Sunflower</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a2" />
+                                <asp:Button Text="$1.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a2" />
                             </div>
                         </div>
                     </div>
@@ -271,7 +271,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Zinnia</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a3" />
+                                <asp:Button Text="$1.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a3" />
                             </div>
                         </div>
                     </div>
@@ -284,7 +284,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Dahlia</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a4" />
+                                <asp:Button Text="$2.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a4" />
                             </div>
                         </div>
                     </div>
@@ -304,7 +304,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Petunia</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a5" />
+                                <asp:Button Text="$2.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a5" />
                             </div>
                         </div>
                     </div>
@@ -317,7 +317,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Pansy</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a6" />
+                                <asp:Button Text="$3.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a6" />
                             </div>
                         </div>
                     </div>
@@ -330,7 +330,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Calendula</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a7" />
+                                <asp:Button Text="$1.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a7" />
                             </div>
                         </div>
                     </div>
@@ -343,7 +343,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Cornflower</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a8" />
+                                <asp:Button Text="$1.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a8" />
                             </div>
                         </div>
                     </div>
@@ -367,7 +367,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Red Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a200" />
+                                <asp:Button Text="$3.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a200" />
                             </div>
                         </div>
                     </div>
@@ -380,7 +380,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Black Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a201" />
+                                <asp:Button Text="$9.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a201" />
                             </div>
                         </div>
                     </div>
@@ -393,7 +393,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large White Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a202" />
+                                <asp:Button Text="$9.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a202" />
                             </div>
                         </div>
                     </div>
@@ -406,7 +406,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Sky Blue Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a203" />
+                                <asp:Button Text="$9.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a203" />
                             </div>
                         </div>
                     </div>
@@ -426,7 +426,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Large Baby Pink Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a204" />
+                                <asp:Button Text="$9.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a204" />
                             </div>
                         </div>
                     </div>
@@ -439,7 +439,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Aubergine Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a205" />
+                                <asp:Button Text="$3.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a205" />
                             </div>
                         </div>
                     </div>
@@ -452,7 +452,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Clay Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a206" />
+                                <asp:Button Text="$3.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a206" />
                             </div>
                         </div>
                     </div>
@@ -465,7 +465,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong>Small Black Glossy Pot</strong></h5>
                             </div>
                             <div style="margin-left: auto; margin-right: auto;" class="mbr-section-btn item-footer mt-2">
-                                <asp:Button Text="Add to Cart" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a207" />
+                                <asp:Button Text="$3.99" CssClass="btn btn-primary display-7" runat="server" OnClick="OnAddToCart" ID="a207" />
                             </div>
                         </div>
                     </div>
