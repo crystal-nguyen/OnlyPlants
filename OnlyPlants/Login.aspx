@@ -103,6 +103,9 @@
                             <div class="col-md-auto col-12 mbr-section-btn">
                                 <asp:Button CssClass="btn btn-black display-4" OnClick="submit_Click" Text="Log In" runat="server" ID="login" />
                             </div>
+                            <div class="col-md-auto col-12 mbr-section-btn">
+                                <asp:Button CssClass="btn btn-black display-4" OnClick="admin_login" Text="Admin Login" runat="server" ID="admin_btn" />
+                            </div>
                         </div>
                     </div>
                     <div class="offset-lg-1"></div>

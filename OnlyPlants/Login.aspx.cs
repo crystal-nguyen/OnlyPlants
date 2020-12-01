@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Web.UI.HtmlControls;
 using Npgsql;
+using System.Web.Security;
 
 namespace OnlyPlants
 {
@@ -66,7 +67,8 @@ namespace OnlyPlants
                     user.Value = result;
                     Response.Cookies.Add(user);
                     user.Expires = DateTime.Now.AddMinutes(10);
-                    Response.Redirect("~/Order");
+                   Response.Redirect("~/Order");
+
                 }
                 else
                 {
@@ -77,6 +79,11 @@ namespace OnlyPlants
                 }
             }
             catch { }
+        }
+
+        protected void admin_login(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Protected/Admin");
         }
     }
 }

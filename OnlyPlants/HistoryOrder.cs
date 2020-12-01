@@ -15,6 +15,11 @@ namespace OnlyPlants
         {
             this.items = new List<Product>();
         }
+        public HistoryOrder(int orderid, double total)
+        {
+            this.orderid = orderid;
+            this.total = total;
+        }
 
         public void addProduct(int quantity, string name)
         {
