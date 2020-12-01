@@ -26,6 +26,8 @@ namespace OnlyPlants
                     Port,
                     Password);
 
+        private int userid = 0;
+
         // add divs based on number of produts in the order
         private void add_divs(List<int> prods)
         {
@@ -65,6 +67,11 @@ namespace OnlyPlants
                 Cart globalCart = (Cart)Application["Cart"];
                 hi.Visible = true;
                 add_divs(globalCart.ProductList);
+            }
+            HttpCookie user = Request.Cookies["USER"];
+            if(user!= null)
+            {
+                userid = Convert.ToInt32(user.Value);
             }
 
         }
@@ -155,9 +162,9 @@ namespace OnlyPlants
                     var paymentSQL = @"INSERT INTO payment(userid, orderid, paymenttype, paymentamount) VALUES(@userID, @orderID, @paymentType, @paymentAmount)";
                     using (var cmdPayment = new NpgsqlCommand(paymentSQL, con))
                     {
-                        cmdPayment.Parameters.AddWithValue("userID", totalQuantity);
+                        cmdPayment.Parameters.AddWithValue("userID", userid);
                         cmdPayment.Parameters.AddWithValue("orderID", globalCart.OrderID);
-                        cmdPayment.Parameters.AddWithValue("paymentType", totalQuantity);//get from payment typeBox Text
+                        cmdPayment.Parameters.AddWithValue("paymentType", "VISA");
                         cmdPayment.Parameters.AddWithValue("paymentAmount", price);
                         cmdPayment.ExecuteNonQuery();
                     }
@@ -168,6 +175,7 @@ namespace OnlyPlants
                     name_tb.Text = "";
                     card_tb.Text = "";
                     email_tb.Text = "";
+                    hi.Visible = false;
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "Success();", true);
 
                 }
